@@ -17,11 +17,6 @@ app.config['PROPAGATE_EXCEPTIONS'] = True
 app.secret_key = 'jose'
 api = Api(app)
 
-# Create table with out file "create_Table" SQLAclchemy will create table if not exist
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
 # If we want to change the url to the authentication endpoint instead of default /auth
 # app.config['JWT_AUTH_URL_RULE'] = '/login'
 
