@@ -15,7 +15,7 @@ app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Api_data.db'
 
 #since we added postgres in Heroku we are adding os.evniron and provided get with 2 param (if 1st not found then use 2nd param)
-app.config['SQLAlCHEMY DATABASE URI'] = os.environ.get('DATABASE_URL','sqlite:////Api_data.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','sqlite:///Api_data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['PROPAGATE_EXCEPTIONS'] = True
 app.secret_key = 'jose'
