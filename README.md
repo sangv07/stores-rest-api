@@ -1,5 +1,15 @@
 # rest-api-python
 We have created framework with user registration for authentication. 
+and create 3 tables;
+    users
+    items
+    store
+# Below Lib added
+    Flask
+    Flask-RESTful
+    Flask-JWT
+    Flask-SQLAlchemy
+    psycopg2
 
 
 In user.py we added registration class where JSON values from POSTMAN /register will insert into DB
