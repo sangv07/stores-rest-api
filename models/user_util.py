@@ -13,7 +13,7 @@ class UserModel(db.Model):
 
     @classmethod
     def find_by_username(cls, username):
-        # it will return "Select * from users where username(columnname) = username(argument)
+        # it will return "Select * from users where username(column_name) = username(argument)
         return cls.query.filter_by(username=username).first()
 
     @classmethod

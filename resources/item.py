@@ -35,7 +35,7 @@ class Item(Resource):
         try:
             item.save_to_db()
         except:
-            return {'Message': "An error occured inseting the item '{}'".format(item)}, 500
+            return {'Message': "An error occur inserting the item '{}'".format(item)}, 500
 
         return item.json(), 201
 
@@ -54,8 +54,8 @@ class Item(Resource):
         item = ItemModel.find_by_name(name)
 
         if item is None:
-            item = ItemModel(name, data['price'], data['store_id'])
-            item = ItemModel(name, **data) # simplified version
+            # item = ItemModel(name, data['price'], data['store_id'])
+            item = ItemModel(name, **data)  # simplified version
         else:
             item.price = data['price'], data['store_id']
 
@@ -63,12 +63,13 @@ class Item(Resource):
 
         return item.json()
 
+
 # creating Class for List of Items to be requested
 class ItemList(Resource):
     @jwt_required()
     def get(self):
         result = ItemModel.find_by()
-        #return {'Items': result.json()}
+        # return {'Items': result.json()}
 
         # if result:
         #     items =[]
@@ -78,5 +79,4 @@ class ItemList(Resource):
         # return {'message': 'Server Issues:'}
 
     # OR return {'items': [items.json() for items in result]}
-        lamda = lambda x: x.json()
-        return {'items': list(map(lamda, result))}
+        return {'items': list(map(lambda x:x.json(), result))}
